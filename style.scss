@@ -1,0 +1,284 @@
+@font-face {
+    font-family: "gyparody";
+    src: url("/fonts/gyparody hv.ttf");
+}
+
+body{
+    background-color: #353535;
+    background: url('jeopardy-background.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.intro-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background: url('jeopardy-background.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: gyparody, Copse;
+    .hero-title{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(220%, -50%);
+        font-size: 12vw;
+        color: #cdc5ac;
+        transition: transform 2.5s ease-out;
+        text-shadow: 
+            0 1px 0 #ccc, 
+            0 2px 0 #c9c9c9, 
+            0 3px 0 #bbb, 
+            0 4px 0 #b9b9b9, 
+            0 5px 0 #aaa, 
+            0 6px 1px rgba(0,0,0,.1), 
+            0 0 5px rgba(0,0,0,.1), 
+            0 1px 3px rgba(0,0,0,.3), 
+            0 3px 5px rgba(0,0,0,.2), 
+            0 5px 10px rgba(0,0,0,.25), 
+            0 10px 10px rgba(0,0,0,.2), 
+            0 20px 20px rgba(0,0,0,.15);
+    }
+    .active{
+        transform: translate(-50%, -50%);
+    }
+    .startBtn{
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translate(-50%, 25%);
+        font-size: 26px;
+        font-weight: 600;
+        padding: 5px 20px;
+        background-color: #ece356;
+        border-radius: 30px;
+        cursor: pointer;
+        opacity: 0;
+    }
+}
+
+#jeopardy{
+    margin: auto;
+    background-color: black;
+    font-family: Copse;
+    text-transform: capitalize;
+    .board{
+        display: flex;
+        flex-wrap: wrap;
+        border: 5px solid black;
+        .category-row{
+            flex: 0 0 auto;
+            width: 16.66%;
+            box-sizing: border-box;
+            border-left: 5px solid black;
+            border-right: 5px solid black;
+            div{
+                position: relative;
+                background-color: #001b96;
+                border-top: 5px solid black;
+                border-bottom: 5px solid black;
+                padding-top: 100%;
+                overflow: hidden;
+                span{
+                    width: 80%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+                    text-shadow: 2px 2px 2px black;
+                }
+            }
+            .category-title{
+                color: white;
+            }
+            .category-cell{
+                color: gold;
+            }
+        }
+    }
+}
+.active-clue{
+    cursor: pointer;
+}
+
+// clue card
+.clue-card{
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: #001b96;
+    border: 12px solid white;
+    text-align: center;
+    text-transform: uppercase;
+    word-spacing: 4px;
+    font-family: copse;
+    padding: 30px;
+    text-shadow: 3px 3px black;
+    overflow: hidden;
+    .clue-card-category{
+        color: white;
+        font-size: 28px;
+    }
+    .clue-card-question{
+        width: 80%;
+        color: white;
+        font-size: 36px;
+    }
+    .clue-card-answer{
+        color: red;
+        font-size: 28px;
+    }
+    .clue-card-answer.hidden{
+        opacity: 0;
+    }
+}
+
+// loading
+#spin-container{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 36px;
+    z-index: 28;
+    opacity: 0;
+}
+#spin-container.loading{
+    opacity: 1;
+}
+
+// restart
+.restart-container{
+    position: fixed;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 450px;
+    height: 250px;
+    box-sizing: border-box;
+    background-color: rgb(111, 181, 242);
+    border: 4px solid #fefde4;
+    border-radius: 14px;
+    padding: 20px;
+    z-index: 1000;
+    .restart-text{
+        font-family: gyparody;
+        font-size: 40px;
+        color: #fefde4;
+        text-shadow: 
+            0 1px 0 #ccc, 
+            0 2px 0 #c9c9c9, 
+            0 3px 0 #bbb, 
+            0 4px 0 #b9b9b9, 
+            0 5px 0 #aaa, 
+            0 6px 1px rgba(0,0,0,.1), 
+            0 0 5px rgba(0,0,0,.1), 
+            0 1px 3px rgba(0,0,0,.3), 
+            0 3px 5px rgba(0,0,0,.2), 
+            0 5px 10px rgba(0,0,0,.25), 
+            0 10px 10px rgba(0,0,0,.2), 
+            0 20px 20px rgba(0,0,0,.15);
+    }
+    .restartBtn{
+        font-size: 20px;
+        font-weight: 600;
+        padding: 6px 16px;
+        border-radius: 24px;
+        background-color: #ece356;
+        cursor: pointer;
+    }
+} 
+
+@media (max-width: 576px) {
+    .clue-card {
+        padding: 20px;
+        .clue-card-category {
+            font-size: 24px;
+        }
+        .clue-card-question {
+            width: 90%;
+            font-size: 30px;
+        }
+        .clue-card-answer {
+            font-size: 24px;
+        }
+    }
+    .restart-container{
+        width: 90vw;
+    }
+}
+
+@media (max-width: 959px) {
+    #jeopardy{
+        width: 100%;
+        font-size: 14px;
+        .board {
+            .category-row {
+                div{
+                    span{
+                        width: 85%;
+                    }
+                }
+                .category-cell {
+                    font-size: 26px;
+                } 
+            }
+        }
+    }
+}
+
+@media (min-width: 960px) {
+    #jeopardy{
+        width: 75%;
+        font-size: 16px;
+        .board {
+            .category-row {
+                .category-cell {
+                    font-size: 30px;
+                } 
+            }
+        }
+    }
+}
+
+@media (min-width: 1320px) {
+    #jeopardy{
+        width: 50%;
+        font-size: 16px;
+        .board {
+            .category-row {
+                div{
+                    span{
+                        width: 85%;
+                    }
+                }
+                .category-cell {
+                    font-size: 32px;
+                } 
+            }
+        }
+    }
+}
