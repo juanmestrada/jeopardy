@@ -1,6 +1,6 @@
 @font-face {
   font-family: "gyparody";
-  src: url("/Fonts/gyparody-hv.ttf");
+  src: url("gyparody-hv.ttf");
 }
 body {
   background-color: #353535;
